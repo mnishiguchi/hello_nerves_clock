@@ -1,4 +1,4 @@
-defmodule HelloNervesClock.LED do
+defmodule Blinker.LED do
   @moduledoc false
 
   alias Circuits.GPIO
@@ -6,7 +6,7 @@ defmodule HelloNervesClock.LED do
   @doc """
   ## Examples
   ```
-  alias HelloNervesClock.LED
+  alias Blinker.LED
 
   LED.open(26)
   |> LED.on()
@@ -20,6 +20,9 @@ defmodule HelloNervesClock.LED do
     {:ok, led} = GPIO.open(pin, :output)
     led
   end
+
+  def switch(led, true), do: on(led)
+  def switch(led, false), do: off(led)
 
   def on(led) do
     message("on #{inspect(led)}")
