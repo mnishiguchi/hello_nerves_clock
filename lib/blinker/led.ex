@@ -1,9 +1,7 @@
 defmodule Blinker.LED do
-  @moduledoc false
+  @moduledoc """
+  A hardware layer that isolate LEDs.
 
-  alias Circuits.GPIO
-
-  @doc """
   ## Examples
   ```
   alias Blinker.LED
@@ -14,6 +12,9 @@ defmodule Blinker.LED do
   |> LED.off()
   ```
   """
+
+  alias Circuits.GPIO
+
   def open(pin) do
     message("Opening #{pin}")
 
